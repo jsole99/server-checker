@@ -4,38 +4,35 @@ import os
 ## need to get menu function working
 def menu():
     menu_list = ["Check Server Status", "Add New Server", "Remove Server", "Exit"]
-
     # iterates menu
     for i in menu_list:
         print(str(menu_list.index(i) + 1) + ". " + i)
 
-    #need to figure out while loop here
-    while menuSelection != [a-zA-Z]:
-    #captures user input
-        menuSelection = input("Selection: ")
 
+
+def menuSelectionLogic():
+    menuValue = input("Selection: ")
     #returns data captures and stored in menuSelection
-    return(menuSelection)
-
-
-
-
-def menuSelectionLogic(menuValue):
-    print(menuValue)
     match int(menuValue):
         case 1:
             print("Menu Option 1 Selected")
+            selection = 1
         case 2:
             print("Menu Option 2 Selected")
+            selection = 2
         case 3:
             print("Menu Option 3 Selected")
+            selection = 3
         case 4:
-            return 0
+            selection = 0
+    return selection
 
 def main():
-    print("JDS Service Checker 1.0 Running...")
-    menuValue = menu()
-    menuSelectionLogic(menuValue)
+    running = 1
+    while running != 0:
+        print("JDS Service Checker 1.0 Running...")
+        menu()
+        running = menuSelectionLogic()
     return 0
 
 
