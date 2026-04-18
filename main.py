@@ -1,19 +1,28 @@
 import re
 import os
 
+MENU_LIST = ["Check Server Status", "Add New Server", "Remove Server", "Exit"]
+
 ## need to get menu function working
 def menu():
-    menu_list = ["Check Server Status", "Add New Server", "Remove Server", "Exit"]
     # iterates menu
-    for i in menu_list:
-        print(str(menu_list.index(i) + 1) + ". " + i)
+    for i in MENU_LIST:
+        print(str(MENU_LIST.index(i) + 1) + ". " + i)
 
 
 
 def menuSelectionLogic():
-    menuValue = input("Selection: ")
+    menuValue = 0
+    while True:
+        try:
+            menuValue = int(input("Selection: "))
+            break
+        except ValueError:
+            print("ERROR: Please Select Options 1 - " + str(len(MENU_LIST)))
+
+
     #returns data captures and stored in menuSelection
-    match int(menuValue):
+    match menuValue:
         case 1:
             print("Menu Option 1 Selected")
             selection = 1
